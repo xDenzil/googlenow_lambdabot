@@ -19,7 +19,7 @@ restService.post("/echo", function (req, res) {
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.userInput
       ? req.body.queryResult.parameters.userInput
-      : "Shalleluyaj";
+      : "Unable to process that.";
 
   var speechResponse = {
     google: {
