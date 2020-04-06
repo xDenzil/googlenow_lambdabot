@@ -43,7 +43,7 @@ function reduce(text) {
   console.log(); //newline
 }
 function a(num1, num2) {
-  return num1 + num2;
+  console.log(num1 + num2);
 }
 
 function parseLambda(input) {
