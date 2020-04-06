@@ -27,9 +27,9 @@ var accepted = [
   "space",
   "dot",
 ];
-
+/* 
 function parseLambda(input) {
-  const inputString = input;
+  var inputString = input;
   var processedString = "";
   var split = inputSring.split(" ");
 
@@ -41,6 +41,10 @@ function parseLambda(input) {
     }
   }
 
+  return "Oh";
+} */
+
+function parseLambda() {
   return "Oh";
 }
 
@@ -66,7 +70,7 @@ restService.post("/echo", function (req, res) {
       ? req.body.queryResult.parameters.userInput
       : "Unable to process that.";
 
-  var parseResults = parseLambda(req.body.queryResult.parameters.userInput);
+  var parseResults = parseLambda();
 
   var speechResponse = {
     google: {
