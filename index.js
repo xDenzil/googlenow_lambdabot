@@ -42,9 +42,10 @@ function reduce(text) {
 
   console.log(); //newline
 }
-function a(num1, num2) {
-  console.log(num1 + num2);
-}
+
+// function a(num1, num2) {
+//   console.log(num1 + num2);
+// }
 
 function parseLambda(input) {
   var inputString = input;
@@ -91,7 +92,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: a(2, 2),
+              textToSpeech: reduce(req.body.queryResult.parameters.userInput),
             },
           },
         ],
