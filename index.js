@@ -60,7 +60,6 @@ restService.use(
 );
 
 restService.use(bodyParser.json());
-console.log(speech);
 
 restService.post("/echo", function (req, res) {
   var speech =
