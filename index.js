@@ -31,7 +31,7 @@ var accepted = [
 function parseLambda(input) {
   var inputString = input;
   var processedString = "";
-  var split = inputSring.split(" ");
+  var split = inputString.split(" ");
 
   for (i = 0; i < split.length; i++) {
     for (j = 0; j < accepted.length; j++) {
