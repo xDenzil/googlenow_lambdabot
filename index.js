@@ -28,6 +28,9 @@ var accepted = [
   "dot",
 ];
 
+var i = 0;
+var j = 0;
+
 function parseLambda(input) {
   var inputString = input;
   var processedString = "";
