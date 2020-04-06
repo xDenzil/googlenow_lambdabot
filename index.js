@@ -25,7 +25,7 @@ var accepted = [
   "b",
   "c",
   "space",
-  "dot",
+  ".",
 ];
 
 var i = 0;
@@ -76,7 +76,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: parseResults,
+              textToSpeech: 1 + 1,
             },
           },
         ],
