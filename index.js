@@ -72,7 +72,9 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: parseLambda(speech),
+              textToSpeech: parseLambda(
+                req.body.queryResult.parameters.userInput
+              ),
             },
           },
         ],
