@@ -41,7 +41,7 @@ function parseLambda(input) {
     }
   }
 
-  return processedString;
+  return "Oh";
 }
 
 const express = require("express");
