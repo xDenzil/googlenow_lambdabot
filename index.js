@@ -31,7 +31,7 @@ var accepted = [
 function parseLambda(input) {
   const inputString = input;
   var processedString = "";
-  var split = input.split(" ");
+  var split = inputSring.split(" ");
 
   for (i = 0; i < split.length; i++) {
     for (j = 0; j < accepted.length; j++) {
@@ -56,6 +56,7 @@ restService.use(
 );
 
 restService.use(bodyParser.json());
+console.log(speech);
 
 restService.post("/echo", function (req, res) {
   var speech =
@@ -64,7 +65,7 @@ restService.post("/echo", function (req, res) {
     req.body.queryResult.parameters.userInput
       ? req.body.queryResult.parameters.userInput
       : "Unable to process that.";
-
+  console.log(speech);
   var speechResponse = {
     google: {
       expectUserResponse: true,
@@ -72,7 +73,9 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: req.body.queryResult.parameters.userInput,
+              textToSpeech: parseLambda(
+                req.body.queryResult.parameters.userInput
+              ),
             },
           },
         ],
