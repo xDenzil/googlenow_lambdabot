@@ -43,7 +43,6 @@ function parseLambda(input) {
       }
     }
   }
-
   return processedString;
 }
 

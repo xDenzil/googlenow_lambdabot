@@ -4,11 +4,15 @@
   "description": "APL project for integrating a lambda calculator with a voice assistant.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "simpleunit test"
   },
   "author": "Denzil Williams",
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "simpleunit": "0.0.8"
   }
 }
