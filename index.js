@@ -65,7 +65,9 @@ restService.post("/echo", function (req, res) {
     req.body.queryResult.parameters.userInput
       ? req.body.queryResult.parameters.userInput
       : "Unable to process that.";
-  console.log(speech);
+
+  var parseResults = parseLambda(req.body.queryResult.parameters.userInput);
+
   var speechResponse = {
     google: {
       expectUserResponse: true,
@@ -73,9 +75,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: parseLambda(
-                req.body.queryResult.parameters.userInput
-              ),
+              textToSpeech: parseResults,
             },
           },
         ],
