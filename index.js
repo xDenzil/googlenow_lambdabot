@@ -1,4 +1,5 @@
 "use strict";
+var sl = require("./lib/simplelambda.js");
 
 var dict = {
   open: "(",
@@ -30,6 +31,17 @@ var accepted = [
 
 var i = 0;
 var j = 0;
+
+function reduce(text) {
+  var term = sl.parse(text);
+
+  while (term) {
+    console.log(term.toString());
+    term = sl.reduce(term);
+  }
+
+  console.log(); //newline
+}
 
 function parseLambda(input) {
   var inputString = input;
@@ -76,7 +88,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: 1 + 1,
+              textToSpeech: reduce(req.body.queryResult.parameters.userInput),
             },
           },
         ],
