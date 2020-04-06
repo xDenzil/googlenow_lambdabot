@@ -42,6 +42,9 @@ function reduce(text) {
 
   console.log(); //newline
 }
+function a(num1, num2) {
+  return num1 + num2;
+}
 
 function parseLambda(input) {
   var inputString = input;
@@ -79,7 +82,7 @@ restService.post("/echo", function (req, res) {
       ? req.body.queryResult.parameters.userInput
       : "Unable to process that.";
 
-  var parseResults = parseLambda(req.body.queryResult.parameters.userInput);
+  var parseResults = reduce(req.body.queryResult.parameters.userInput);
 
   var speechResponse = {
     google: {
@@ -88,7 +91,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: reduce(req.body.queryResult.parameters.userInput),
+              textToSpeech: a(2, 2),
             },
           },
         ],
