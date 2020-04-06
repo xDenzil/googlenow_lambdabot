@@ -93,7 +93,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: lambdaString,
+              textToSpeech: reduce(lambdaString),
             },
           },
         ],
