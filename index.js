@@ -59,7 +59,7 @@ restService.post("/echo", function (req, res) {
     payload: response,
     //data: speechResponse,
     fulfillmentText: responseFromBot,
-    speech: responseFromBot,
+    speech: "Here's what I calculated for you",
     displayText: responseFromBot,
   });
 });
