@@ -2,7 +2,7 @@ var dict = {
   open: "(",
   close: ")",
   closed: ")",
-  lambda: "\\" + "\\",
+  lambda: "~",
   x: "x",
   y: "y",
   why: "y",
