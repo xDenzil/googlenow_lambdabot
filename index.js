@@ -40,7 +40,7 @@ function reduce(text) {
     term = sl.reduce(term);
   }
 
-  console.log(); //newline
+  //console.log(); //newline
 }
 
 // function a(num1, num2) {
