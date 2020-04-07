@@ -85,7 +85,7 @@ restService.post("/echo", function (req, res) {
 
   //var parseResults = reduce(req.body.queryResult.parameters.userInput);
   var lambdaString = req.body.queryResult.parameters.userInput;
-  var responseToUser = "dog";
+  var responseToUser = reduce(lambdaString);
   var response = {
     google: {
       expectUserResponse: true,
