@@ -60,6 +60,7 @@ restService.post("/echo", function (req, res) {
           {
             simpleResponse: {
               textToSpeech: responseFromBot,
+              displayText: "Yea man a it",
             },
           },
         ],
@@ -69,10 +70,10 @@ restService.post("/echo", function (req, res) {
 
   return res.json({
     payload: response,
-    //data: speechResponse,
-    fulfillmentText: responseFromBot,
+
+    // fulfillmentText: responseFromBot,
     speech: responseFromBot,
-    displayText: responseFromBot,
+    displayText: "Yea man a it",
   });
 });
 
