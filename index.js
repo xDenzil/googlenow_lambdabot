@@ -35,7 +35,9 @@ restService.post("/echo", function (req, res) {
       responseFromBot = responseFromBot + "\n" + term.toString();
       term = sl.reduce(term);
     }
-    responseFromBot = responseFromBot.replace("\\", "λ");
+    for (var i = 0; i < responseFromBot.length; i++) {
+      responseFromBot = responseFromBot.replace("\\", "λ");
+    }
     console.log(); //newline
   }
 
