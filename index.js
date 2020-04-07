@@ -2,6 +2,7 @@
 "use strict";
 
 var sl = require("./lib/simplelambda.js");
+var ps = require("./speech_to_symbols.js");
 const express = require("express");
 const bodyParser = require("body-parser");
 const restService = express();
@@ -26,7 +27,13 @@ restService.post("/echo", function (req, res) {
   var inputFromUser = req.body.queryResult.parameters.userInput;
   var responseFromBot = " ";
 
-  reduce(inputFromUser);
+  if (inputFromUser.includes("lambda")) {
+    var processed = ps.parseLambda(inputFromUser);
+    reduce(processed);
+  } else {
+    reduce(inputFromUser);
+  }
+
   function reduce(inputFromUser) {
     var term = sl.parse(inputFromUser);
 
@@ -51,9 +58,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech:
-                responseFromBot +
-                "\n\n\n Say lambda to go again, quit to exit.",
+              textToSpeech: responseFromBot,
             },
           },
         ],
