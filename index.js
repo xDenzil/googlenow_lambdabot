@@ -29,7 +29,7 @@ restService.post("/echo", function (req, res) {
 
   if (inputFromUser.includes("lambda") || inputFromUser.includes("Lambda")) {
     var processed = ps.parseLambda(inputFromUser);
-    console.log("string received from parse function: " + processed);
+    console.log("string received from parse function:" + processed);
     reduce(processed);
   } else {
     reduce(inputFromUser);
