@@ -5,6 +5,7 @@ var dict = {
   lambda: "\\" + "\\",
   x: "x",
   y: "y",
+  why: "y",
   z: "z",
   a: "a",
   b: "b",
@@ -24,6 +25,7 @@ var accepted = [
   "a",
   "b",
   "c",
+  "why",
   // "space",
   ".",
 ];
