@@ -85,8 +85,31 @@ restService.post("/echo", function (req, res) {
 
   //var parseResults = reduce(req.body.queryResult.parameters.userInput);
   var lambdaString = req.body.queryResult.parameters.userInput;
+  var responseToUser = "dog";
+  var response = {
+    google: {
+      expectUserResponse: true,
+      richResponse: {
+        items: [
+          {
+            simpleResponse: {
+              textToSpeech: responseToUser,
+            },
+          },
+        ],
+      },
+    },
+  };
 
-  var speechResponse = {
+  return res.json({
+    payload: response,
+    //data: speechResponse,
+    fulfillmentText: responseToUser,
+    speech: responseToUser,
+    displayText: responseToUser,
+  });
+
+  /* var speechResponse = {
     google: {
       expectUserResponse: true,
       richResponse: {
@@ -103,12 +126,12 @@ restService.post("/echo", function (req, res) {
 
   return res.json({
     payload: speechResponse,
-    data: speechResponse,
+    //data: speechResponse,
     fulfillmentText: speech,
     speech: speech,
     displayText: speech,
     source: "google-now-lambda-bot",
-  });
+  }); */
 });
 
 restService.listen(process.env.PORT || 8000, function () {
