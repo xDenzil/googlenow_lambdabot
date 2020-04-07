@@ -1,70 +1,9 @@
+//----------------- SETUP --------------------//
 "use strict";
+
 var sl = require("./lib/simplelambda.js");
-
-var dict = {
-  open: "(",
-  close: ")",
-  lambda: "λ",
-  x: "x",
-  y: "y",
-  z: "z",
-  a: "a",
-  b: "b",
-  c: "c",
-  space: " ",
-  dot: ".",
-};
-
-var accepted = [
-  "open",
-  "close",
-  "lambda",
-  "x",
-  "y",
-  "z",
-  "a",
-  "b",
-  "c",
-  "space",
-  ".",
-];
-
-var i = 0;
-var j = 0;
-
-function reduce(text) {
-  var term = sl.parse(text);
-
-  while (term) {
-    console.log(term.toString());
-    term = sl.reduce(term);
-  }
-
-  //console.log(); //newline
-}
-
-// function a(num1, num2) {
-//   console.log(num1 + num2);
-// }
-
-function parseLambda(input) {
-  var inputString = input;
-  var processedString = "";
-  var split = inputString.split(" ");
-
-  for (i = 0; i < split.length; i++) {
-    for (j = 0; j < accepted.length; j++) {
-      if (split[i].toLowerCase() == accepted[j]) {
-        processedString += dict[split[i].toLowerCase()];
-      }
-    }
-  }
-  return processedString;
-}
-
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const restService = express();
 
 restService.use(
@@ -74,8 +13,9 @@ restService.use(
 );
 
 restService.use(bodyParser.json());
-
 restService.post("/echo", function (req, res) {
+  //----------------- AGENT FUCNTIONALITY --------------------//
+
   var speech =
     req.body.queryResult &&
     req.body.queryResult.parameters &&
@@ -83,9 +23,22 @@ restService.post("/echo", function (req, res) {
       ? req.body.queryResult.parameters.userInput
       : "Unable to process that.";
 
-  //var parseResults = reduce(req.body.queryResult.parameters.userInput);
-  var lambdaString = req.body.queryResult.parameters.userInput;
-  var responseToUser = reduce(lambdaString);
+  var inputFromUser = req.body.queryResult.parameters.userInput;
+  var responseFromBot = "";
+
+  function reduce(inputFromUser) {
+    var term = sl.parse(inputFromUser);
+
+    while (term) {
+      console.log(term.toString());
+      responseFromBot = responseFromBot + "\n" + term.toString();
+      term = sl.reduce(term);
+    }
+    console.log(); //newline
+  }
+
+  //----------------- RESPONSES --------------------//
+
   var response = {
     google: {
       expectUserResponse: true,
@@ -93,7 +46,7 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: responseToUser,
+              textToSpeech: responseFromBot,
             },
           },
         ],
@@ -104,34 +57,10 @@ restService.post("/echo", function (req, res) {
   return res.json({
     payload: response,
     //data: speechResponse,
-    fulfillmentText: responseToUser,
-    speech: responseToUser,
-    displayText: responseToUser,
+    fulfillmentText: responseFromBot,
+    speech: responseFromBot,
+    displayText: responseFromBot,
   });
-
-  /* var speechResponse = {
-    google: {
-      expectUserResponse: true,
-      richResponse: {
-        items: [
-          {
-            simpleResponse: {
-              textToSpeech: reduce(lambdaString),
-            },
-          },
-        ],
-      },
-    },
-  };
-
-  return res.json({
-    payload: speechResponse,
-    //data: speechResponse,
-    fulfillmentText: speech,
-    speech: speech,
-    displayText: speech,
-    source: "google-now-lambda-bot",
-  }); */
 });
 
 restService.listen(process.env.PORT || 8000, function () {
