@@ -51,7 +51,8 @@ restService.post("/echo", function (req, res) {
         items: [
           {
             simpleResponse: {
-              textToSpeech: responseFromBot,
+              textToSpeech:
+                responseFromBot + "\n Say lambda to go again, quit to exit.",
             },
           },
         ],
