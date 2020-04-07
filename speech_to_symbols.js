@@ -6,6 +6,7 @@ var dict = {
   x: "x",
   y: "y",
   why: "y",
+  by: "y",
   z: "z",
   a: "a",
   b: "b",
@@ -26,8 +27,10 @@ var accepted = [
   "b",
   "c",
   "why",
+  "by",
   // "space",
   ".",
+  "then",
 ];
 
 var i = 0;
