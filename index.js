@@ -59,14 +59,7 @@ restService.post("/echo", function (req, res) {
   return res.json({
     payload: response,
     //data: speechResponse,
-    fulfillmentText: "Say this",
-    fulfillmentMessages: [
-      {
-        text: {
-          text: responseFromBot,
-        },
-      },
-    ],
+    fulfillmentText: responseFromBot,
     speech: responseFromBot,
     displayText: responseFromBot,
   });
