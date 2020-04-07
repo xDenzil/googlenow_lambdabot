@@ -36,6 +36,7 @@ restService.post("/echo", function (req, res) {
       term = sl.reduce(term);
     }
     for (var i = 0; i < responseFromBot.length; i++) {
+      // Replacing the backslashes with lambda symbol
       responseFromBot = responseFromBot.replace("\\", "λ");
     }
     console.log(); //newline
