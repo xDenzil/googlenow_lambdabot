@@ -12,7 +12,7 @@ var dict = {
   b: "b",
   c: "c",
   // space: " ",
-  then: ".",
+  period: ".",
 };
 
 var accepted = [
@@ -30,7 +30,7 @@ var accepted = [
   "by",
   // "space",
   ".",
-  "then",
+  "period",
 ];
 
 var i = 0;
