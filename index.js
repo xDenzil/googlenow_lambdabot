@@ -24,9 +24,10 @@ restService.post("/echo", function (req, res) {
       : "Unable to process that.";
 
   var inputFromUser = req.body.queryResult.parameters.userInput;
-  var responseFromBot = "uptop g";
+  var responseFromBot = " ";
 
-  /* function reduce(inputFromUser) {
+  reduce(inputFromUser);
+  function reduce(inputFromUser) {
     var term = sl.parse(inputFromUser);
 
     while (term) {
@@ -36,7 +37,7 @@ restService.post("/echo", function (req, res) {
     }
     console.log(); //newline
   }
- */
+
   //----------------- RESPONSES --------------------//
 
   var response = {
