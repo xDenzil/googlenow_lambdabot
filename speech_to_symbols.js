@@ -2,7 +2,7 @@ var dict = {
   open: "(",
   close: ")",
   closed: ")",
-  lambda: "\\",
+  lambda: "\\" + "\\",
   x: "x",
   y: "y",
   z: "z",
@@ -10,7 +10,7 @@ var dict = {
   b: "b",
   c: "c",
   // space: " ",
-  and: ".",
+  then: ".",
 };
 
 var accepted = [
