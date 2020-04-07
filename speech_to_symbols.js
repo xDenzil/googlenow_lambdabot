@@ -1,6 +1,7 @@
 var dict = {
   open: "(",
   close: ")",
+  closed: ")",
   lambda: "\\",
   x: "x",
   y: "y",
@@ -9,12 +10,13 @@ var dict = {
   b: "b",
   c: "c",
   // space: " ",
-  dot: ".",
+  and: ".",
 };
 
 var accepted = [
   "open",
   "close",
+  "closd",
   "lambda",
   "x",
   "y",
