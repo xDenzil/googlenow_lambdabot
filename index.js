@@ -35,6 +35,7 @@ restService.post("/echo", function (req, res) {
       responseFromBot = responseFromBot + "\n" + term.toString();
       term = sl.reduce(term);
     }
+    responseFromBot = responseFromBot.replace("\\", "λ");
     console.log(); //newline
   }
 
@@ -58,8 +59,15 @@ restService.post("/echo", function (req, res) {
   return res.json({
     payload: response,
     //data: speechResponse,
-    fulfillmentText: responseFromBot,
-    speech: "Here's what I calculated for you",
+    fulfillmentText: "Say this",
+    fulfillmentMessages: [
+      {
+        text: {
+          text: responseFromBot,
+        },
+      },
+    ],
+    speech: responseFromBot,
     displayText: responseFromBot,
   });
 });
