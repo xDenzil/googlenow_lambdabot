@@ -4,4 +4,4 @@
 
 ## What is it?
 
-A chatbot that can evaluate lambda calculus expressions, regardless how complex. The input can be parsed from different forms.
+A chatbot built on Google Now, that can evaluate lambda calculus expressions, regardless how complex. The input can be parsed from different forms.
